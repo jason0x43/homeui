@@ -1,0 +1,46 @@
+.root {
+  position: relative;
+  height: var(--control-height);
+  display: flex;
+  align-items: center;
+}
+
+.root input {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  --track-height: var(--control-height);
+}
+
+.root input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: var(--track-height);
+  width: var(--track-height);
+  border-radius: var(--radius);
+  border: solid 1px var(--control-border);
+  background: var(--control-fg);
+  cursor: pointer;
+}
+
+.root input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+  background: var(--control-bg);
+  border-radius: var(--radius);
+}
+
+.root input:focus {
+  outline: none;
+}
+
+.label {
+  position: absolute;
+  left: var(--unit);
+  color: var(--text-inverse-color);
+}
+
+.label.right {
+  left: auto;
+  right: var(--unit);
+}

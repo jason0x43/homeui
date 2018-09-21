@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Config",
+  "description": "HomeUI config",
+  "type": "object",
+
+  "properties": {
+    "mqttPort": {
+      "description": "Port to listen for MQTT WebSocket connections",
+      "type": "integer"
+    },
+
+    "rooms": {
+      "description": "Room descriptors",
+      "type": "object",
+      "patternProperties": {
+        "^[a-f0-9]+$": {
+          "type": "object",
+          "uniqueItems": true,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "deviceIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": ["id", "name", "deviceIds"]
+        }
+      }
+    },
+
+    "devices": {
+      "description": "Device metadata",
+      "type": "object",
+      "patternProperties": {
+        "^[a-f0-9]+$": {
+          "type": "object",
+          "uniqueItems": true,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "template": {
+              "type": "string"
+            }
+          },
+          "required": ["id"]
+        }
+      }
+    }
+  }
+}

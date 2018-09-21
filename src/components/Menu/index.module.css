@@ -1,0 +1,123 @@
+:root {
+  --button-pad-tb: var(--unit);
+  --button-pad-lr: calc(var(--unit) * 2);
+  --button-svg-height: 32px;
+
+  /* This must be 0px, not just 0, for calc() to work */
+  --button-margin-bottom: 0px;
+
+  --menu-bg: #f0f0f0;
+  --menu-fg: #bbb;
+}
+
+.root {
+  width: 100%;
+  font-size: 18px;
+  z-index: 2;
+
+  flex-shrink: 0;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+
+  color: var(--fg);
+  background: var(--menu-bg);
+  border-top: solid 1px var(--border);
+}
+
+.root button {
+  background: none;
+  border: none;
+  padding: var(--button-pad-tb) var(--button-pad-lr);
+  margin-bottom: var(--button-margin-bottom);
+  display: block;
+  fill: var(--menu-fg);
+}
+
+.root button:focus,
+.root button:active {
+  outline: none;
+}
+
+.root .active {
+  fill: var(--fg);
+}
+
+.root svg {
+  height: var(--button-svg-height);
+}
+
+.popup {
+  position: absolute;
+  max-height: calc(100% - var(--menu-height));
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  transform: translateX(-50%);
+  box-shadow: var(--shadow);
+  background: var(--bg);
+  user-select: none;
+  bottom: calc(
+    var(--button-svg-height) + 2 * var(--button-pad-tb) +
+      var(--button-margin-bottom)
+  );
+}
+
+/*
+ * Enable inertial scrolling on the menu. This class will be removed before
+ * items are added to the menu and added back after the menu is fully rendered.
+ */
+.popup-rendered {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.options {
+  list-style-type: none;
+  padding: calc(2 * var(--unit));
+  margin: 0;
+
+  --font-size: 18px;
+  font-size: var(--font-size);
+
+  /* Prevent annoying flash when an item is clicked */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.option {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+}
+
+.option-text {
+  flex-grow: 1;
+  cursor: pointer;
+  padding: var(--unit) calc(var(--unit) * 2);
+}
+
+.option-icon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  padding: 0 calc(var(--unit) * 2);
+  align-items: center;
+  justify-items: center;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  :root {
+    --button-margin-bottom: max(
+      calc(env(safe-area-inset-bottom) - var(--button-pad-tb)),
+      0px
+    );
+  }
+
+  .popup {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+}

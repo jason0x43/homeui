@@ -1,0 +1,8 @@
+.root {
+  color: var(--text-color);
+}
+
+.legend {
+  font-weight: bold;
+  margin-bottom: calc(var(--unit) / 2);
+}

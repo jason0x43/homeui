@@ -1,0 +1,61 @@
+.button {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: solid 1px var(--btn-border);
+  border-radius: var(--btn-radius);
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: var(--btn-hover-bg);
+}
+
+.naked-button {
+  composes: button;
+  background: none;
+  border: none;
+}
+
+.modal {
+  position: absolute;
+  background: white;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(204, 204, 204);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: calc(var(--unit) * 2);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons > * {
+  margin-right: var(--unit);
+}
+
+.modal-buttons > *:last-child {
+  margin-right: 0;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .modal {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

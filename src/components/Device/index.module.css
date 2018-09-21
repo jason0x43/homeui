@@ -1,0 +1,72 @@
+.root {
+  font-size: 12px;
+  line-height: 14px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--unit) * 2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  transition: transform 0.25s 0.1s, opacity 0.25s 0.1s;
+
+  --device-fg: #aaa;
+  --device-bg: #f7f7f7;
+  color: var(--device-fg);
+  fill: var(--device-fg);
+  background: var(--device-bg);
+}
+
+.root svg {
+  height: 32px;
+  width: auto;
+}
+
+.active {
+  --device-fg: var(--fg);
+  --device-bg: #e0e0e0;
+}
+
+.root:active {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.off:active {
+  background: #bbb;
+}
+
+.header {
+  padding-bottom: var(--unit);
+  flex-shrink: 0;
+  display: flex;
+}
+
+.icon {
+  margin-right: auto;
+}
+
+.info {
+  fill: #aaa;
+}
+
+.info svg {
+  height: 16px;
+}
+
+.root:hover .info {
+  fill: inherit;
+}
+
+.name {
+  flex-grow: 1;
+  font-weight: bold;
+  overflow: hidden;
+  padding-bottom: var(--unit);
+}
+
+.state {
+  font-size: 14px;
+  position: relative;
+}

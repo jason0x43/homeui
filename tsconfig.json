@@ -1,0 +1,15 @@
+{
+  "extends": "./node_modules/@jason0x43/react-scripts/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "/",
+    "experimentalDecorators": true,
+    "lib": ["dom", "dom.iterable", "es2015"],
+    "noErrorTruncation": true,
+    "outDir": "build"
+  },
+  "files": ["src/filetypes.d.ts"],
+  "include": ["src/**/*"],
+  "exclude": [
+    "src/hub/smartthings/**/*.ts"
+  ]
+}

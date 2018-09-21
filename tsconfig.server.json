@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "build_server",
+    "module": "commonjs"
+  },
+  "include": [
+    "src/server.ts"
+  ],
+  "exclude": [
+    "src/stfetch.ts"
+  ]
+}

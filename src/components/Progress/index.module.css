@@ -1,0 +1,15 @@
+.Progress {
+  position: relative;
+  height: 4px;
+  border-radius: 3px;
+  background: #ddd;
+  margin-bottom: 1em;
+}
+
+.Progress-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #777;
+}

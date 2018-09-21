@@ -1,0 +1,50 @@
+.root {
+  --width: 60px;
+  --height: var(--control-height);
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+}
+
+.root input {
+  display: none;
+}
+
+.toggle {
+  border-radius: var(--radius);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--control-bg);
+  transition: 0.4s;
+}
+
+.toggle::before {
+  position: absolute;
+  content: '';
+  height: var(--height);
+  width: calc(var(--width) / 2);
+  border-radius: var(--radius);
+  left: 0;
+  bottom: 0;
+  background: var(--control-fg);
+  border: solid 1px #999;
+  transition: 0.4s;
+}
+
+.root input:checked + .toggle {
+  background: var(--active-color);
+}
+
+.root input:focus + .toggle {
+  background: white;
+  box-shadow: 0 0 1px var(--active-color);
+}
+
+.root input:checked + .toggle::before {
+  transform: translateX(calc(var(--width) / 2));
+}

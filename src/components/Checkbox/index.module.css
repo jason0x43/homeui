@@ -1,0 +1,27 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.root svg {
+  height: var(--font-size);
+  margin-right: var(--unit);
+}
+
+.root input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.disabled {
+  color: var(--fg-disabled);
+  cursor: auto;
+}
+
+.disabled svg {
+  fill: var(--fg-disabled);
+}

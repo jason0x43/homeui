@@ -1,0 +1,6 @@
+{
+  "extends": ["@jason0x43/react-scripts/tslint.json"],
+  "linterOptions": {
+    "exclude": ["src/server.ts"]
+  }
+}

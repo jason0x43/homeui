@@ -1,0 +1,79 @@
+{
+  "name": "homeui",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Jason Cheatham",
+  "dependencies": {
+    "@types/cors": "~2.8.4",
+    "@types/dotenv-safe": "~4.0.1",
+    "@types/react-modal": "~3.1.2",
+    "@types/react-router-redux": "~5.0.15",
+    "@types/ws": "~4.0.2",
+    "ajv": "~6.2.1",
+    "chokidar": "~2.0.3",
+    "commander": "~2.14.1",
+    "cors": "~2.8.4",
+    "dotenv-safe": "~5.0.1",
+    "express": "~4.16.3",
+    "http-proxy-middleware": "~0.18.0",
+    "json-patch": "~0.7.0",
+    "react-router-redux": "~5.0.0-alpha.9",
+    "rimraf": "~2.6.2",
+    "ws": "~5.1.1"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others 'npm run start:client' 'npm run start:server'",
+    "start:client": "react-scripts start",
+    "start:server": "nodemon --watch 'src/server.ts' --exec 'ts-node -P tsconfig.server.json' src/server.ts",
+    "build": "react-scripts build && node scripts/build_server.js",
+    "clean": "rimraf build && rimraf build_server && rimraf 'src/**/*.module.css.d.ts'",
+    "deploy": "npm run clean && npm run build && node scripts/deploy.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@jason0x43/react-scripts": "~1.0.7",
+    "@types/chokidar": "~1.7.5",
+    "@types/express": "~4.11.1",
+    "@types/http-proxy-middleware": "~0.17.4",
+    "@types/jest": "~22.2.3",
+    "@types/json-patch": "0.0.30",
+    "@types/node": "~9.6.20",
+    "@types/query-string": "^5.0.1",
+    "@types/react": "~16.3.16",
+    "@types/react-dom": "~16.0.5",
+    "@types/react-redux": "~5.0.20",
+    "@types/react-router": "~4.0.26",
+    "@types/react-router-dom": "~4.2.7",
+    "@types/simple-oauth2": "~1.1.1",
+    "@types/uuid": "~3.4.3",
+    "autobind-decorator": "~2.1.0",
+    "concurrently": "~3.5.1",
+    "fast-deep-equal": "~1.0.0",
+    "glob": "^7.1.2",
+    "nodemon": "~1.15.0",
+    "prettier": "~1.12.1",
+    "query-string": "~5.1.1",
+    "re-reselect": "~1.0.1",
+    "react": "~16.3.2",
+    "react-dom": "~16.3.2",
+    "react-modal": "~3.3.2",
+    "react-redux": "~5.0.6",
+    "react-router": "~4.2.0",
+    "react-router-dom": "~4.2.2",
+    "redux": "~3.7.2",
+    "redux-thunk": "~2.2.0",
+    "reselect": "~3.0.1",
+    "ts-node": "~5.0.1",
+    "typescript": "~2.8.4",
+    "uuid": "~3.2.1"
+  },
+  "proxy": {
+    "/v1": {
+      "target": "http://localhost:3003"
+    },
+    "/config": {
+      "target": "http://localhost:3003"
+    }
+  }
+}

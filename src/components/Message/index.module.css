@@ -1,0 +1,29 @@
+.root {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  padding: calc(var(--unit) * 2) calc(var(--unit) * 3);
+  background: white;
+  border-top: none;
+  border-bottom-right-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+
+.error {
+  background: #f77;
+  color: white;
+}
+
+.success {
+  background: #7f7;
+  color: white;
+}
+
+.hiding {
+  opacity: 0;
+}

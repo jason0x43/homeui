@@ -1,0 +1,22 @@
+.root {
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-left: var(--content-side-pad);
+  padding-right: var(--content-side-pad);
+}
+
+.grid {
+  --box-side: 120px;
+  padding: 16px;
+  display: grid;
+  grid-gap: calc(2 * var(--unit));
+  grid-template-columns: repeat(auto-fit, minmax(var(--box-side), 1fr));
+  grid-auto-rows: 1fr;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .grid {
+    --box-side: 100px;
+  }
+}

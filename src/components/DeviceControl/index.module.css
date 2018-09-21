@@ -1,0 +1,11 @@
+.root {
+  height: 100%;
+}
+
+.controls > * {
+  margin-bottom: calc(2 * var(--unit));
+}
+
+.controls > *:last-child {
+  margin-bottom: 0;
+}

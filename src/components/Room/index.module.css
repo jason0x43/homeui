@@ -1,0 +1,27 @@
+.root {
+  background: var(--bg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  --btn-bg: #eee;
+  --btn-radius: 4px;
+}
+
+.devices {
+  list-style-type: none;
+  margin: 0;
+  padding: calc(var(--unit) * 2);
+}
+
+.devices li {
+  margin-bottom: var(--unit);
+}
+
+.devices li:last-child {
+  margin-bottom: 0;
+}
+
+.devices-wrapper {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
